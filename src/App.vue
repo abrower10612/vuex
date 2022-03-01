@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <FirstComponent />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FirstComponent from './components/FirstComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FirstComponent
+  },
+  methods: {
+    increment() {
+      this.$store.commit('increment');
+      console.log(this.$store.state.count)
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+  }
 </style>
